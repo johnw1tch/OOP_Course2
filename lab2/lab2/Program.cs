@@ -8,10 +8,16 @@ class Sum
         string? temp;
         for (int i = 0; i < 3; i++)
         {
-            Console.WriteLine("Enter " + (i + 1) + "th Element");
-            temp = Console.ReadLine();
-            if (temp == null) a_var[i] = 0;
-            else a_var[i] = float.Parse(temp);
+            try
+            {
+                Console.WriteLine("Enter " + (i + 1) + "th Element");
+                temp = Console.ReadLine();
+                if (temp == null) a_var[i] = 0;
+                else a_var[i] = float.Parse(temp);
+            }
+            catch(Exception ex) {
+                Console.WriteLine(ex.ToString());
+            }
         }
         return;
     }
@@ -26,6 +32,10 @@ class Sum
         return sum;
     }
 
+}
+
+class Program
+{
     static void Main(string[] args)
     {
         Sum sum = new();
@@ -33,6 +43,4 @@ class Sum
         Console.WriteLine("The Result is : " + sum.Execute());
 
     }
-
-
 }

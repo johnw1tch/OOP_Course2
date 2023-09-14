@@ -1,0 +1,14 @@
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab3\lab3\bin\Debug\net6.0\lab3.exe
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab3\lab3\bin\Debug\net6.0\lab3.deps.json
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab3\lab3\bin\Debug\net6.0\lab3.runtimeconfig.json
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab3\lab3\bin\Debug\net6.0\lab3.dll
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab3\lab3\bin\Debug\net6.0\lab3.pdb
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab3\lab3\obj\Debug\net6.0\lab3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab3\lab3\obj\Debug\net6.0\lab3.AssemblyInfoInputs.cache
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab3\lab3\obj\Debug\net6.0\lab3.AssemblyInfo.cs
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab3\lab3\obj\Debug\net6.0\lab3.csproj.CoreCompileInputs.cache
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab3\lab3\obj\Debug\net6.0\lab3.dll
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab3\lab3\obj\Debug\net6.0\refint\lab3.dll
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab3\lab3\obj\Debug\net6.0\lab3.pdb
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab3\lab3\obj\Debug\net6.0\lab3.genruntimeconfig.cache
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab3\lab3\obj\Debug\net6.0\ref\lab3.dll

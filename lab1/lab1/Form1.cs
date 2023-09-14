@@ -15,7 +15,7 @@ namespace lab1
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -29,7 +29,7 @@ namespace lab1
                 }
 
                 textBox4.Text = money.ToString();
-                textBox5.Text = "Operation succesful";
+                textBox5.Text = "Operation successful";
             }
             catch (Exception ex)
             {
