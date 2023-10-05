@@ -1,11 +1,11 @@
-﻿class Square_Equation
+﻿class SquareEquation
 {
     protected float b2;
     protected float b1;
     protected float b0;
 
-    public Square_Equation() { }
-    public Square_Equation(float b2, float b1, float b0)
+    public SquareEquation() { }
+    public SquareEquation(float b2, float b1, float b0)
     {
         this.b2 = b2; 
         this.b1 = b1; 
@@ -35,11 +35,11 @@
         else return null;
     }
 }
-class Cubic_Equation : Square_Equation
+class CubicEquation : SquareEquation
 {
     private float a0;
 
-    public Cubic_Equation(float b2, float b1, float b0, float a0) 
+    public CubicEquation(float b2, float b1, float b0, float a0) 
     { 
         this.b2 = b2;
         this.b1 = b1;
@@ -72,11 +72,11 @@ class Program
             float a2 = float.Parse(Console.ReadLine());
             float a1 = float.Parse(Console.ReadLine());
             float a0 = float.Parse(Console.ReadLine());
-            Cubic_Equation Cub_Equ = new(a3, a2, a1, a0);
-            Console.WriteLine("Solutions for a square equation with b2,b1,b0 =" + Cub_Equ.PrintB() + " are :" + Cub_Equ.GetSolution(1) + " and " + Cub_Equ.GetSolution(2));
-            Console.WriteLine("Write x for Cubic equation " + Cub_Equ.Getb2() + "*x^3+" + Cub_Equ.Getb1() + "*x^2+" + Cub_Equ.Getb0() + "*x+" + Cub_Equ.Geta0() + " : ");
+            CubicEquation CubEqu = new(a3, a2, a1, a0);
+            Console.WriteLine("Solutions for a square equation with b2,b1,b0 =" + CubEqu.PrintB() + " are :" + CubEqu.GetSolution(1) + " and " + CubEqu.GetSolution(2));
+            Console.WriteLine("Write x for Cubic equation " + CubEqu.Getb2() + "*x^3+" + CubEqu.Getb1() + "*x^2+" + CubEqu.Getb0() + "*x+" + CubEqu.Geta0() + " : ");
             float x = float.Parse(Console.ReadLine());
-            if (Cub_Equ.X2val_Valid(x))
+            if (CubEqu.X2val_Valid(x))
             {
                 Console.WriteLine("the x is correct!");
             }
