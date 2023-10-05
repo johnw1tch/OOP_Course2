@@ -5,12 +5,14 @@ class Sum
 {
     private readonly float[] a_var = new float[3];
 
-    public Sum()
-    {
-    }
+    public Sum() { }
     public Sum(float a1, float a2, float a3)
     {
         this.a_var[0] = a1; this.a_var[1] = a2; this.a_var[2] = a3;
+    }
+    ~Sum()
+    {
+        Console.WriteLine("Destructor Called!");
     }
 
     public void SetAvar()
@@ -84,6 +86,7 @@ class Program
                 }
             }
             Console.WriteLine("Max result is " + max + " in Object № " + (imax + 1));
+            
         }
         catch (Exception ex)
         {

@@ -1,15 +1,15 @@
-﻿class Square_equation
+﻿class Square_Equation
 {
     protected float b2;
     protected float b1;
     protected float b0;
 
-    public Square_equation() { }
-    public Square_equation(float b2) { this.b2 = b2; }
-    public Square_equation(float b2, float b1) { this.b2 = b1; this.b1 = b2; }
-    public Square_equation(float b2, float b1, float b0)
+    public Square_Equation() { }
+    public Square_Equation(float b2, float b1, float b0)
     {
-        this.b2 = b2; this.b1 = b1; this.b0 = b0;
+        this.b2 = b2; 
+        this.b1 = b1; 
+        this.b0 = b0;
     }
     public void Setb0(float b) { this.b0 = b; }
     public void Setb1(float b) { this.b1 = b; }
@@ -21,7 +21,7 @@
     {
         return b2 + "," + b1 + "," + b0;
     }
-    public bool X1val(float x)
+    public bool X1val_Valid(float x)
     {
         if (b2 * (x * x) + b1 * x + b0 == 0) { return true; }
         else { return false; }
@@ -35,17 +35,26 @@
         else return null;
     }
 }
-class Cubic_equation : Square_equation
+class Cubic_Equation : Square_Equation
 {
     private float a0;
 
-    public Cubic_equation(float b2, float b1, float b0, float a0) { this.b2 = b2; this.b1 = b1; this.b0 = b0; this.a0 = a0; }
+    public Cubic_Equation(float b2, float b1, float b0, float a0) 
+    { 
+        this.b2 = b2;
+        this.b1 = b1;
+        this.b0 = b0;
+        this.a0 = a0; 
+    }
+
+    public float Geta0() {return a0;}
+    public void Seta0(float a0) { this.a0 = a0; }
 
     public void PrintA()
     {
         Console.WriteLine(b2 + "," + b1 + "," + b0 + "," + a0 + ",");
     }
-    public bool X2val(float x)
+    public bool X2val_Valid(float x)
     {
         if (b2 * (x * x * x) + b1 * (x * x) + b0 * x + a0 == 0) return true;
         else return false;
@@ -63,11 +72,11 @@ class Program
             float a2 = float.Parse(Console.ReadLine());
             float a1 = float.Parse(Console.ReadLine());
             float a0 = float.Parse(Console.ReadLine());
-            Cubic_equation Cub_Equ = new(a3, a2, a1, a0);
+            Cubic_Equation Cub_Equ = new(a3, a2, a1, a0);
             Console.WriteLine("Solutions for a square equation with b2,b1,b0 =" + Cub_Equ.PrintB() + " are :" + Cub_Equ.GetSolution(1) + " and " + Cub_Equ.GetSolution(2));
-            Console.WriteLine("Write x for Cubic equation: ");
+            Console.WriteLine("Write x for Cubic equation " + Cub_Equ.Getb2() + "*x^3+" + Cub_Equ.Getb1() + "*x^2+" + Cub_Equ.Getb0() + "*x+" + Cub_Equ.Geta0() + " : ");
             float x = float.Parse(Console.ReadLine());
-            if (Cub_Equ.X2val(x))
+            if (Cub_Equ.X2val_Valid(x))
             {
                 Console.WriteLine("the x is correct!");
             }
