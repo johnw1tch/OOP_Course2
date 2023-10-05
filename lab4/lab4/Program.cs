@@ -1,62 +1,62 @@
 ﻿class SquareEquation
 {
-    protected float b2;
-    protected float b1;
-    protected float b0;
+    protected float _b2;
+    protected float _b1;
+    protected float _b0;
 
     public SquareEquation() { }
     public SquareEquation(float b2, float b1, float b0)
     {
-        this.b2 = b2; 
-        this.b1 = b1; 
-        this.b0 = b0;
+        _b2 = b2; 
+        _b1 = b1; 
+        _b0 = b0;
     }
-    public void Setb0(float b) { this.b0 = b; }
-    public void Setb1(float b) { this.b1 = b; }
-    public void Setb2(float b) { this.b2 = b; }
-    public float Getb0() { return b0; }
-    public float Getb1() { return b1; }
-    public float Getb2() { return b2; }
+    public void Setb0(float b) { this._b0 = b; }
+    public void Setb1(float b) { this._b1 = b; }
+    public void Setb2(float b) { this._b2 = b; }
+    public float Getb0() { return _b0; }
+    public float Getb1() { return _b1; }
+    public float Getb2() { return _b2; }
     public string PrintB()
     {
-        return b2 + "," + b1 + "," + b0;
+        return _b2 + "," + _b1 + "," + _b0;
     }
     public bool X1val_Valid(float x)
     {
-        if (b2 * (x * x) + b1 * x + b0 == 0) { return true; }
+        if (_b2 * (x * x) + _b1 * x + _b0 == 0) { return true; }
         else { return false; }
     }
     public double? GetSolution(int n)
     {
-        double D = b1 * b1 - 4 * b2 * b0;
+        double D = _b1 * _b1 - 4 * _b2 * _b0;
         if (D < 0) return null;
-        else if (n == 1) return (-1) * b1 + Math.Sqrt(D) / 2 * b2;
-        else if (n == 2 && D != 0) return (-1) * b1 + (-1) * Math.Sqrt(D) / 2 * b2;
+        else if (n == 1) return (-1) * _b1 + Math.Sqrt(D) / 2 * _b2;
+        else if (n == 2 && D != 0) return (-1) * _b1 + (-1) * Math.Sqrt(D) / 2 * _b2;
         else return null;
     }
 }
 class CubicEquation : SquareEquation
 {
-    private float a0;
+    private float _a0;
 
     public CubicEquation(float b2, float b1, float b0, float a0) 
     { 
-        this.b2 = b2;
-        this.b1 = b1;
-        this.b0 = b0;
-        this.a0 = a0; 
+        _b2 = b2;
+        _b1 = b1;
+        _b0 = b0;
+        _a0 = a0; 
     }
 
-    public float Geta0() {return a0;}
-    public void Seta0(float a0) { this.a0 = a0; }
+    public float Geta0() {return _a0;}
+    public void Seta0(float a0) { this._a0 = a0; }
 
     public void PrintA()
     {
-        Console.WriteLine(b2 + "," + b1 + "," + b0 + "," + a0 + ",");
+        Console.WriteLine(_b2 + "," + _b1 + "," + _b0 + "," + _a0 + ",");
     }
     public bool X2val_Valid(float x)
     {
-        if (b2 * (x * x * x) + b1 * (x * x) + b0 * x + a0 == 0) return true;
+        if (_b2 * (x * x * x) + _b1 * (x * x) + _b0 * x + _a0 == 0) return true;
         else return false;
     }
 }
