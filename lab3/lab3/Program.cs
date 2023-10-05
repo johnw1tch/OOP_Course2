@@ -4,6 +4,15 @@
 class Sum
 {
     private readonly float[] a_var = new float[3];
+
+    public Sum()
+    {
+    }
+    public Sum(float a1, float a2, float a3)
+    {
+        this.a_var[0] = a1; this.a_var[1] = a2; this.a_var[2] = a3;
+    }
+
     public void SetAvar()
     {
         string? temp;
@@ -33,8 +42,9 @@ class Sum
         }
         return sum;
     }
-
 }
+
+
 
 class Program
 {
