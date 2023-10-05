@@ -1,62 +1,53 @@
-﻿using System.Reflection.Metadata.Ecma335;
-using System.Runtime.InteropServices;
-
-class Square_equation
+﻿class Square_equation
 {
-    private float[] b = new float[3];
+    protected float b2;
+    protected float b1;
+    protected float b0;
 
     public Square_equation() { }
-    public Square_equation(float b1) { this.b[0]=b1; }
-    public Square_equation(float b1,float b2) { this.b[0] = b1; this.b[1]=b2; }
-    public Square_equation(float b1, float b2,float b3)
+    public Square_equation(float b2) { this.b2 = b2; }
+    public Square_equation(float b2, float b1) { this.b2 = b1; this.b1 = b2; }
+    public Square_equation(float b2, float b1, float b0)
     {
-        this.b[0]=b1; this.b[1]=b2; this.b[2]=b3;
+        this.b2 = b2; this.b1 = b1; this.b0 = b0;
     }
-    public Square_equation(float[] b) { this.b = b;}
-    public void Setb(int n,float b) { this.b[n]=b; }
-    public void Setb(float[] b) { this.b = b;}
-    public float Getb(int n) {  return b[n]; }
+    public void Setb0(float b) { this.b0 = b; }
+    public void Setb1(float b) { this.b1 = b; }
+    public void Setb2(float b) { this.b2 = b; }
+    public float Getb0() { return b0; }
+    public float Getb1() { return b1; }
+    public float Getb2() { return b2; }
     public string PrintB()
     {
-        string output = "";
-        for (int i = 0; i < b.Length; i++)
-        {
-           output+= b[i] + ",";
-        }
-        return output;
+        return b2 + "," + b1 + "," + b0;
     }
     public bool X1val(float x)
     {
-        if (b[0]*(x * x) + b[1] * x + b[2] == 0) { return true; }
+        if (b2 * (x * x) + b1 * x + b0 == 0) { return true; }
         else { return false; }
     }
     public double? GetSolution(int n)
     {
-        double D = b[1] * b[1] - 4 * b[0] * b[2];
+        double D = b1 * b1 - 4 * b2 * b0;
         if (D < 0) return null;
-        else if(n == 1) return (-1) * b[1] + Math.Sqrt(D) / 2 * b[0];
-        else if(n == 2 && D!=0) return (-1) * b[1] + (-1)*Math.Sqrt(D) / 2 * b[0];
+        else if (n == 1) return (-1) * b1 + Math.Sqrt(D) / 2 * b2;
+        else if (n == 2 && D != 0) return (-1) * b1 + (-1) * Math.Sqrt(D) / 2 * b2;
         else return null;
     }
 }
 class Cubic_equation : Square_equation
 {
-    private float[] a = new float[4];
-    public Cubic_equation(float[] a, float[] b) { this.a = a;Setb(b); }
-    public Cubic_equation(float a1, float a2, float a3, float a4, float b1, float b2, float b3) { this.a[0] = a1; this.a[1] = a2; this.a[2] = a3; this.a[3] = a4; Setb(0, b1); Setb(1, b2); Setb(2, b3); }
-    public void Seta(int n, float a) { this.a[n] = a; }
-    public float Geta(int n) { return this.a[n]; }
+    private float a0;
+
+    public Cubic_equation(float b2, float b1, float b0, float a0) { this.b2 = b2; this.b1 = b1; this.b0 = b0; this.a0 = a0; }
 
     public void PrintA()
     {
-        for(int i=0; i<a.Length; i++)
-        {
-            Console.Write(a[i]+",");
-        }
+        Console.WriteLine(b2 + "," + b1 + "," + b0 + "," + a0 + ",");
     }
     public bool X2val(float x)
     {
-        if (a[0] * (x * x * x) + a[1] * (x * x) + a[2]*x+ a[3]==0) return true;
+        if (b2 * (x * x * x) + b1 * (x * x) + b0 * x + a0 == 0) return true;
         else return false;
     }
 }
@@ -67,15 +58,12 @@ class Program
     {
         try
         {
-            Console.WriteLine("Enter a3,a2,a1,a0,b2,b1,b0:");
+            Console.WriteLine("Enter a3=b2,a2=b1,a1=b0,a0:");
             float a3 = float.Parse(Console.ReadLine());
             float a2 = float.Parse(Console.ReadLine());
             float a1 = float.Parse(Console.ReadLine());
             float a0 = float.Parse(Console.ReadLine());
-            float b2 = float.Parse(Console.ReadLine());
-            float b1 = float.Parse(Console.ReadLine());
-            float b0 = float.Parse(Console.ReadLine());
-            Cubic_equation Cub_Equ = new(a3, a2, a1, a0, b2, b1, b0);
+            Cubic_equation Cub_Equ = new(a3, a2, a1, a0);
             Console.WriteLine("Solutions for a square equation with b2,b1,b0 =" + Cub_Equ.PrintB() + " are :" + Cub_Equ.GetSolution(1) + " and " + Cub_Equ.GetSolution(2));
             Console.WriteLine("Write x for Cubic equation: ");
             float x = float.Parse(Console.ReadLine());
