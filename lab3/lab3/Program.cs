@@ -5,16 +5,18 @@ class Sum
 {
     private readonly float[] a_var = new float[3];
 
-    public Sum() { }
+    public Sum()
+    {
+        a_var[0] = 999;
+        a_var[1] = 999;
+        a_var[2] = 999;
+
+    }
+
     public Sum(float a1, float a2, float a3)
     {
         this.a_var[0] = a1; this.a_var[1] = a2; this.a_var[2] = a3;
     }
-    ~Sum()
-    {
-        Console.WriteLine("Destructor Called!");
-    }
-
     public void SetAvar()
     {
         string? temp;
@@ -34,7 +36,6 @@ class Sum
         }
         return;
     }
-    public float GetAvar(int n) { return a_var[n]; }
     public float Execute()
     {
         float sum = 0;
@@ -44,6 +45,10 @@ class Sum
         }
         return sum;
     }
+    ~Sum()
+    {
+        Console.WriteLine("Destructor Called!");
+    }
 }
 
 
@@ -52,47 +57,39 @@ class Program
 {
     static void Main(string[] args)
     {
-        try
+        Console.WriteLine("Enter amount of objects");
+        string? temp = Console.ReadLine();
+        int n;
+        if (temp != null)
         {
+            n = int.Parse(temp);
+        }
+        else return;
+        Sum[] sum = new Sum[100];
+        for (int i = 0; i < n; i++)
+        {
+            sum[i] = new Sum();
+            Console.WriteLine("Object №" + (i + 1));
+            sum[i].SetAvar();
+        }
+        Console.WriteLine("Results:");
+        for (int i = 0; i < n; i++)
+        {
+            Console.WriteLine("For " + (i + 1) + "th Object : " + sum[i].Execute());
+        }
+        float max = sum[0].Execute();
+        int imax = 0;
+        for (int i = 0; i < n; i++)
+        {
+            if (max <= sum[i].Execute())
+            {
+                imax = i;
+                max = sum[i].Execute();
+            }
+        }
+        Console.WriteLine("Max result is " + max + " in Object № " + (imax + 1));
 
-            Console.WriteLine("Enter amount of objects");
-            string? temp = Console.ReadLine();
-            int n;
-            if (temp != null)
-            {
-                n = int.Parse(temp);
-            }
-            else return;
-            Sum[] sum = new Sum[100];
-            for (int i = 0; i < n; i++)
-            {
-                sum[i] = new Sum();
-                Console.WriteLine("Object №" + (i + 1));
-                sum[i].SetAvar();
-            }
-            Console.WriteLine("Results:");
-            for (int i = 0; i < n; i++)
-            {
-                Console.WriteLine("For " + (i + 1) + "th Object : " + sum[i].Execute());
-            }
-            float max = sum[0].Execute();
-            int imax = 0;
-            for (int i = 0; i < n; i++)
-            {
-                if (max <= sum[i].Execute())
-                {
-                    imax = i;
-                    max = sum[i].Execute();
-                }
-            }
-            Console.WriteLine("Max result is " + max + " in Object № " + (imax + 1));
-            
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex);
-            return;
-        }
+        
     }
 }
 
