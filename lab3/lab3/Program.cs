@@ -1,16 +1,23 @@
 ﻿
 
-
+class MemoryLeak
+{
+    public MemoryLeak()
+    {
+            Console.WriteLine("Flooding RAM");
+            int[,,] memleak = new int[999, 999, 999];
+    }
+    ~MemoryLeak()
+    {
+        Console.WriteLine("Memory leak destructor called!");
+    }
+}
 class Sum
 {
     private readonly float[] a_var = new float[3];
 
     public Sum()
     {
-        a_var[0] = 999;
-        a_var[1] = 999;
-        a_var[2] = 999;
-
     }
 
     public Sum(float a1, float a2, float a3)
@@ -89,6 +96,9 @@ class Program
         }
         Console.WriteLine("Max result is " + max + " in Object № " + (imax + 1));
 
+        for(int i=0; i < 100; i++) {
+            MemoryLeak memleak = new MemoryLeak();
+        }
         
     }
 }

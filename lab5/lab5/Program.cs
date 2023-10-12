@@ -17,16 +17,16 @@
     public float Getb0() { return _b0; }
     public float Getb1() { return _b1; }
     public float Getb2() { return _b2; }
-    virtual public string Print()
+    public virtual string Print()
     {
         return _b2 + "x^2 +" + _b1 + "x +" + _b0;
     }
-    virtual public bool Xval_Valid(float x)
+    public virtual bool Xval_Valid(float x)
     {
         if (_b2 * (x * x) + _b1 * x + _b0 == 0) { return true; }
         else { return false; }
     }
-    virtual public double? GetSolution(int n)
+    public double? GetSolution(int n)
     {
         double D = _b1 * _b1 - 4 * _b2 * _b0;
         if (D < 0) return null;
@@ -51,11 +51,11 @@ class CubicEquation : SquareEquation
     public float Geta0() { return _a0; }
     public void Seta0(float a0) { this._a0 = a0; }
 
-    override public string Print()
+    public override string Print()
     {
         return _b2 + "x^3 +" + _b1 + "x^2 +" + _b0 + "x +" + _a0;
     }
-    override public bool Xval_Valid(float x)
+    public override bool Xval_Valid(float x)
     {
         if (_b2 * (x * x * x) + _b1 * (x * x) + _b0 * x + _a0 == 0) return true;
         else return false;
@@ -66,12 +66,13 @@ class Program
 {
     public static void Main(string[] args)
     {
+        bool restart;
         do
         {
             SquareEquation Equation = new();
-            Console.WriteLine("Choose:\n 0- SquareEquation.\n 1- CubicEquation");
+            Console.WriteLine("Choose:\n 0 - SquareEquation.\n 1 - CubicEquation");
             int choice = int.Parse(Console.ReadLine());
-            if (choice ==1)
+            if (choice == 1)
             {
                 Console.WriteLine("Enter a3,a2,a1,a0");
                 float a3 = float.Parse(Console.ReadLine());
@@ -79,9 +80,9 @@ class Program
                 float a1 = float.Parse(Console.ReadLine());
                 float a0 = float.Parse(Console.ReadLine());
                 Equation = new CubicEquation(a3, a2, a1, a0);
-                Console.WriteLine("Write x for the equation"+ Equation.Print());
+                Console.WriteLine("Write x for the equation" + Equation.Print());
                 float x = float.Parse(Console.ReadLine());
-                bool correct =Equation.Xval_Valid(x);
+                bool correct = Equation.Xval_Valid(x);
                 if (correct) Console.WriteLine("The x is correct");
                 else Console.WriteLine("The x is incorrect");
             }
@@ -91,18 +92,20 @@ class Program
                 float b2 = float.Parse(Console.ReadLine());
                 float b1 = float.Parse(Console.ReadLine());
                 float b0 = float.Parse(Console.ReadLine());
-                Equation = new SquareEquation(b2,b1,b0);
+                Equation = new SquareEquation(b2, b1, b0);
                 Console.WriteLine("Write x for the equation" + Equation.Print());
                 float x = float.Parse(Console.ReadLine());
                 bool correct = Equation.Xval_Valid(x);
                 if (correct) Console.WriteLine("The x is correct");
                 else Console.WriteLine("The x is incorrect");
 
-                Console.WriteLine("Solutions for a square equation "+Equation.Print()+" are :" + Equation.GetSolution(1) + " and " + Equation.GetSolution(2));
+                Console.WriteLine("Solutions for a square equation " + Equation.Print() + " are :" + ((Equation.GetSolution(1) == null) ? "null" : Equation.GetSolution(1)) + " and " + ((Equation.GetSolution(2) == null) ? "null" : Equation.GetSolution(2)));
             }
-
+            Console.WriteLine("Restart? (Y/N)?");
+            restart = (Console.ReadLine() == "Y");
+            Console.Clear();
         }
-        while (true);
+        while (restart);
 
     }
 }
