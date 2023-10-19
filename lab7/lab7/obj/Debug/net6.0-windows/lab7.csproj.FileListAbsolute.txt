@@ -1,0 +1,16 @@
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab7\lab7\obj\Debug\net6.0-windows\lab7.Form1.resources
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab7\lab7\obj\Debug\net6.0-windows\lab7.csproj.GenerateResource.cache
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab7\lab7\obj\Debug\net6.0-windows\lab7.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab7\lab7\obj\Debug\net6.0-windows\lab7.AssemblyInfoInputs.cache
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab7\lab7\obj\Debug\net6.0-windows\lab7.AssemblyInfo.cs
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab7\lab7\obj\Debug\net6.0-windows\lab7.csproj.CoreCompileInputs.cache
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab7\lab7\bin\Debug\net6.0-windows\lab7.exe
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab7\lab7\bin\Debug\net6.0-windows\lab7.deps.json
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab7\lab7\bin\Debug\net6.0-windows\lab7.runtimeconfig.json
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab7\lab7\bin\Debug\net6.0-windows\lab7.dll
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab7\lab7\bin\Debug\net6.0-windows\lab7.pdb
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab7\lab7\obj\Debug\net6.0-windows\lab7.dll
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab7\lab7\obj\Debug\net6.0-windows\refint\lab7.dll
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab7\lab7\obj\Debug\net6.0-windows\lab7.pdb
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab7\lab7\obj\Debug\net6.0-windows\lab7.genruntimeconfig.cache
+C:\Users\olex3\source\repos\johnw1tch\OOP_Course2\lab7\lab7\obj\Debug\net6.0-windows\ref\lab7.dll
