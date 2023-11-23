@@ -12,9 +12,10 @@ namespace lab8
             string temp;
             do{
                 temp = Console.ReadLine();
-                example += "\n"+temp;
+                if(example =="") example += temp;
+                else example += "\n" + temp;
             } while (temp != "");
-            string pattern = @"Інформатика.+";
+            string pattern = @"Інформатика.+[^\n]";
             int c = 0;
             foreach (Match match in Regex.Matches(example, pattern).Cast<Match>())
             {
