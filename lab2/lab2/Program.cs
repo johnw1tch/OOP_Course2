@@ -2,7 +2,7 @@
 
 class Sum
 {
-    private readonly float[] a_var = new float[3];
+    private readonly float[] aVar = new float[3];
     public void SetAvar()
     {
         string? temp;
@@ -12,8 +12,8 @@ class Sum
             {
                 Console.WriteLine("Enter " + (i + 1) + "th Element");
                 temp = Console.ReadLine();
-                if (temp == null) a_var[i] = 0;
-                else a_var[i] = float.Parse(temp);
+                if (temp == null) aVar[i] = 0;
+                else aVar[i] = float.Parse(temp);
             }
             catch(Exception ex) {
                 Console.WriteLine(ex.ToString());
@@ -21,13 +21,13 @@ class Sum
         }
         return;
     }
-    public float GetAvar(int n) { return a_var[n]; }
+    public float GetAvar(int n) { return aVar[n]; }
     public float Execute()
     {
         float sum = 0;
         for (int i = 0; i < 3; i++)
         {
-            sum += a_var[i] / (i + 1 * (i + 2));
+            sum += aVar[i] / (i + 1 * (i + 2));
         }
         return sum;
     }

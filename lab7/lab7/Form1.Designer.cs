@@ -28,30 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
             panel1 = new Panel();
+            button1 = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // button1
-            // 
-            button1.Location = new Point(3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(110, 82);
-            button1.TabIndex = 0;
-            button1.Text = "Draw/Refresh";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += Button1_Click;
             // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            panel1.AutoSize = true;
             panel1.Controls.Add(button1);
-            panel1.Location = new Point(12, 349);
+            panel1.Location = new Point(12, 401);
             panel1.Name = "panel1";
-            panel1.Size = new Size(116, 89);
-            panel1.TabIndex = 1;
+            panel1.Size = new Size(149, 37);
+            panel1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(3, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(143, 29);
+            button1.TabIndex = 0;
+            button1.Text = "Draw";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // Form1
             // 
@@ -62,14 +61,14 @@
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
+            Resize += Form1_Resize;
             panel1.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Button button1;
         private Panel panel1;
+        private Button button1;
     }
 }

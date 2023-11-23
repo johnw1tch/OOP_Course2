@@ -70,7 +70,7 @@ class Program
         do
         {
             SquareEquation Equation = new();
-            Console.WriteLine("Choose:\n 0 - SquareEquation.\n 1 - CubicEquation");
+            Console.WriteLine("Choose:\n 0 - Square Equation.\n 1 - Cubic Equation");
             int choice = int.Parse(Console.ReadLine());
             if (choice == 1)
             {

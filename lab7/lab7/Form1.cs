@@ -4,6 +4,7 @@ namespace lab7
 {
     public partial class Form1 : Form
     {
+        bool Functioning = false;
         Graphics graph;
         public Form1()
         {
@@ -16,8 +17,14 @@ namespace lab7
 
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void Form1_Resize(object sender, EventArgs e)
         {
+            button1_Click(sender, e);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Functioning = true;
             graph = CreateGraphics();
             graph.Clear(BackColor);
             float Scale(float lower, float upper, float a)
@@ -37,14 +44,14 @@ namespace lab7
             }
             float Function(float t)
             {
-                return (t - (float)Math.Log(2 * t)) / (3 * t + 1);
+                return t * t;//(t - (float)Math.Log(2 * t)) / (3 * t + 1);
             }
             Color color = Color.FromArgb(0, 0, 0);
             float width = 4;
             Pen pen = new(color, width);
             float t, y, t1, y1, loweredget, upperedget, loweredgey, upperedgey, deltat;
             loweredget = 2.1F;
-            upperedget = 8.5F;
+            upperedget = 10F;
             deltat = 0.7F;
             loweredgey = Function(loweredget);
             upperedgey = Function(upperedget);
@@ -53,9 +60,27 @@ namespace lab7
             for (t1 = t + deltat; t1 < upperedget; t1 += deltat)
             {
                 y1 = Function(t1);
-                graph.DrawLine(pen, this.Width * Scale(loweredget, upperedget, t), this.Height * Scale(loweredgey, upperedgey, y), this.Width * Scale(loweredget, upperedget, t1), this.Height * Scale(loweredgey, upperedgey, y1));
+                graph.DrawLine(pen, this.Width * Scale(loweredget, upperedget, t), this.Height * Scale(loweredgey, upperedgey, y)
+                    , this.Width * Scale(loweredget, upperedget, t1), this.Height * Scale(loweredgey, upperedgey, y1));
                 t = t1;
                 y = y1;
+            }
+            pen.Width = 1;
+            for (int i = (int)Math.Ceiling(loweredget); i < upperedget; i++)
+            {
+                graph.DrawLine(pen, this.Width * Scale(loweredget, upperedget, i), 0
+                    , this.Width * Scale(loweredget, upperedget, i), this.Height);
+                Brush textBrush = new SolidBrush(Color.Black);
+                Font drawFont = new Font("Arial", 12);
+                graph.DrawString(i.ToString(), drawFont, textBrush, this.Width * Scale(loweredget, upperedget, i), 5F);
+            }
+            for (int i = (int)Math.Ceiling(loweredgey); i < upperedgey; i++)
+            {
+                graph.DrawLine(pen, 0, this.Height * Scale(loweredgey, upperedgey, i)
+                    , this.Width, this.Height * Scale(loweredgey, upperedgey, i));
+                Brush textBrush = new SolidBrush(Color.Black);
+                Font drawFont = new Font("Arial", 12);
+                graph.DrawString(i.ToString(), drawFont, textBrush, 5F, this.Width * Scale(loweredgey, upperedgey, i));
             }
             /*
              *Graph of how it should approximately look:
